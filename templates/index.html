@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <title>Cadastro de times</title>
+<center>
+    <h1>Lista de times</h1><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th> &nbsp; &nbsp;
+                <th>Treinador</th> &nbsp; &nbsp;
+                <th>Classificação</th> &nbsp; &nbsp;
+                <th>Ações</th> &nbsp; &nbsp;
+            </tr>
+        </thead>
+        <tbody>
+            {% for time in times %}
+            <tr>
+                <td>{{ time['nome'] }}</td> &nbsp;
+                <td>{{ time['treinador'] }}</td> &nbsp;
+                <td>{{ time['classificacao'] }}</td> &nbsp;
+                <td>
+                    <a href="/edit/{{ loop.index0 }}">Editar</a>
+                    <a href="/delete/{{ loop.index0 }}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>
+        <a class='Novo_time' href="/add">Adicionar time</a>
+    </h2>
+</center>
+{% endblock %}

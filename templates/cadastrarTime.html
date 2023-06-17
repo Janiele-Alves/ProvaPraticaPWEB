@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <title>Cadastrar Time</title>
+<center>
+    <h1>Adicionar um novo Time</h1>
+    <form action="/add" method="post">
+        <label for="nome">Nome do Time:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+        <label for="treinador">Treinador do Time:</label>
+        <input type="text" id="treinador" name="treinador" required><br><br>
+        <label for="classificacao">Classificação do Time:</label>
+        <input type="text" id="classificacao" name="classificacao" required><br><br>
+        <input type="submit" value="Adicionar">
+    </form>
+
+</center>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de times</title>
+</head>
+<body>
+    <h1>Lista de times</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Treinador</th>
+                <th>Classificação</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for time in times %}
+            <tr>
+                <td>{{ time['nome'] }}</td>
+                <td>{{ time['treinador'] }}</td>
+                <td>{{ time['classificacao'] }}</td>
+                <td>
+                    <a href="/edit/{{ loop.index0 }}">Editar</a>
+                    <form action="/delete/{{ loop.index0 }}" method="post" style="display: inline;">
+                        <input type="submit" value="Excluir">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <center>
+    <h2>Adicionar time</h2>
+    <form action="/add" method="post">
+        <label for="nome">Nome do time:</label>
+        <input type="text" id="nome" name="nome" required> <br>
+        <label for="treinador">Treinador do time:</label>
+        <input type="text" id="treinador" name="treinador" required> <br>
+        <label for="classificacao">Classificação do time:</label>
+        <input type="text" id="classificacao" name="classificacao" required> <br>
+        <input type="submit" value="Adicionar">
+    </form>
+</center>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <title>Editar time</title>
+<body>
+   <center>
+    <h1>Editar time</h1>
+    <form action="/edit/{{ time['id'] }}" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="{{ time['nome'] }}" required><br><br>
+        <label for="treinador">Treinador:</label>
+        <input type="text" id="treinador" name="treinador" value="{{ time['treinador'] }}" required><br><br>
+        <label for="classificacao">Classificação:</label>
+        <input type="text" id="classificacao" name="classificacao" value="{{ time['classificacao'] }}" required><br><br>
+        
+        <input type="submit" value="Salvar">
+    </form>
+
+</center>
+{% endblock %}
+
